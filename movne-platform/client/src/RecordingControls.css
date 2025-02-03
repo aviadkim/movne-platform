@@ -1,1 +1,12 @@
-/* ניתן להשאיר קובץ זה ריק – העיצוב נעשה דרך Tailwind ב-JSX */
+.regulatory-questions {
+  background-color: #f9fafb;
+}
+
+.topic button {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.question {
+  transition: background-color 0.3s ease;
+}
