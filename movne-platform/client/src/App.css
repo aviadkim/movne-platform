@@ -1,0 +1,33 @@
+.app-container {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.app-header {
+  background-color: #282c34;
+  color: white;
+  padding: 10px;
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.nav-tabs a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.active-tab {
+  background-color: #61dafb;
+  color: #000;
+}
+
+.main-content {
+  padding: 20px;
+}
