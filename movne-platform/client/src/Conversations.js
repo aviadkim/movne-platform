@@ -7,14 +7,15 @@ import SummaryAndActions from './SummaryAndActions';
 import NeedsQuestionnaire from './NeedsQuestionnaire';
 import LiveTranscript from './LiveTranscript';
 import RegulatoryQuestions from './RegulatoryQuestions';
+import TestPanel from './TestPanel'; // יבוא הרכיב
 
 function Conversations() {
   return (
     <div className="p-4">
       <h2 className="text-2xl font-bold mb-4">מודול שיחות</h2>
+      <TestPanel /> {/* כפתור בדיקה */}
       <AudioRecorder />
       <RecordingControls />
-      {/* ניתן לבחור להשתמש או לא ב-TranscriptViewer אם רוצים לראות גם תמלול סטטי */}
       <LiveTranscript />
       <TranscriptViewer />
       <SummaryAndActions />
