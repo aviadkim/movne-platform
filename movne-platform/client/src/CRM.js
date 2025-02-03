@@ -1,41 +1,27 @@
-// client/src/CRM.js
 import React, { useState } from 'react';
 
 function CRM() {
-  const [fullName, setFullName] = useState('');
+  // יצירת state עבור דואר אלקטרוני (ניתן להוסיף state נוסף לפי הצורך)
   const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  
-  const handleSubmit = () => {
-    alert(`לקוח חדש נוצר: ${fullName}`);
-    // שלח את הנתונים לשרת (כאן יש אינטגרציה עם ה-API של השרת)
-  };
 
   return (
-    <div className="crm-form">
-      <h3 className="text-lg font-medium mb-4">הוספת לקוח חדש</h3>
-      <input 
-        type="text" 
-        placeholder="שם מלא" 
-        value={fullName}
-        onChange={(e) => setFullName(e.target.value)}
-        className="input-field"
-      />
-      <input 
-        type="email" 
-        placeholder="דוא"ל"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        className="input-field"
-      />
-      <input 
-        type="tel" 
-        placeholder="טלפון"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-        className="input-field"
-      />
-      <button onClick={handleSubmit} className="submit-button">שמור לקוח</button>
+    <div className="crm-container p-4 bg-white border rounded shadow">
+      <h2 className="text-2xl font-bold mb-4">מערכת CRM</h2>
+      <p className="mb-4">כאן תוצג רשימת לקוחות, היסטוריית שיחות, מוצרים וקופונים.</p>
+      
+      {/* דוגמה לטופס הוספת לקוח או עדכון פרטי לקוח */}
+      <div className="mb-4">
+        <label className="block mb-2 text-sm font-medium text-gray-700">
+          דואר אלקטרוני:
+        </label>
+        <input 
+          type="email" 
+          placeholder="דואר אלקטרוני"  {/* שינינו את הטקסט ל-"דואר אלקטרוני" כדי למנוע שגיאות */}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="input-field w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary"
+        />
+      </div>
     </div>
   );
 }
