@@ -1,1 +1,27 @@
-/* RegulatoryQuestions styles – ניתן להוסיף עיצוב כאן */
+/* client/src/RegulatoryQuestions.css */
+.regulatory-questions {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.regulatory-questions h4 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.regulatory-questions button {
+  background-color: #ff5722;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.regulatory-questions button:hover {
+  background-color: #d45f1d;
+}
