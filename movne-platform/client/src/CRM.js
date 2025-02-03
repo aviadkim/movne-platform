@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 function CRM() {
-  // יצירת state עבור דואר אלקטרוני (ניתן להוסיף state נוסף לפי הצורך)
   const [email, setEmail] = useState('');
 
   return (
@@ -16,7 +15,7 @@ function CRM() {
         </label>
         <input 
           type="email" 
-          placeholder="דואר אלקטרוני"  {/* שינינו את הטקסט ל-"דואר אלקטרוני" כדי למנוע שגיאות */}
+          placeholder="דואר אלקטרוני"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="input-field w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary"
