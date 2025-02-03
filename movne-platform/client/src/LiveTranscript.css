@@ -1,0 +1,20 @@
+/* client/src/LiveTranscript.css */
+.live-transcript {
+  background-color: #e0f7fa; /* רקע בהיר */
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #00796b; /* גבול יוקרתי */
+}
+
+.live-transcript h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.live-transcript pre {
+  font-family: 'Courier New', Courier, monospace;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 1rem;
+  color: #00796b;
+}
