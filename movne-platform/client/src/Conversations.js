@@ -5,18 +5,21 @@ import RecordingControls from './RecordingControls';
 import TranscriptViewer from './TranscriptViewer';
 import SummaryAndActions from './SummaryAndActions';
 import NeedsQuestionnaire from './NeedsQuestionnaire';
-import TestPanel from './TestPanel';  // ייבוא הרכיב החדש
+import LiveTranscript from './LiveTranscript';
+import RegulatoryQuestions from './RegulatoryQuestions';
 
 function Conversations() {
   return (
     <div className="p-4">
       <h2 className="text-2xl font-bold mb-4">מודול שיחות</h2>
-      <TestPanel />  {/* הצגת כפתור הבדיקה */}
       <AudioRecorder />
       <RecordingControls />
+      {/* ניתן לבחור להשתמש או לא ב-TranscriptViewer אם רוצים לראות גם תמלול סטטי */}
+      <LiveTranscript />
       <TranscriptViewer />
       <SummaryAndActions />
       <NeedsQuestionnaire />
+      <RegulatoryQuestions />
     </div>
   );
 }
