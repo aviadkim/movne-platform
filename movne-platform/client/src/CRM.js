@@ -8,7 +8,7 @@ function CRM() {
       <h2 className="text-2xl font-bold mb-4">מערכת CRM</h2>
       <p className="mb-4">כאן תוצג רשימת לקוחות, היסטוריית שיחות, מוצרים וקופונים.</p>
       
-      {/* דוגמה לטופס הוספת לקוח או עדכון פרטי לקוח */}
+      {/* טופס להוספת לקוח/עדכון פרטי לקוח */}
       <div className="mb-4">
         <label className="block mb-2 text-sm font-medium text-gray-700">
           דואר אלקטרוני:
