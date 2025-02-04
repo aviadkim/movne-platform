@@ -1,8 +1,8 @@
-/* client/src/App.css */
+/* App.css */
 :root {
-  --primary-color: #4CAF50;
-  --secondary-color: #ff5722;
-  --bg-color: #f3f4f6;
+  --primary-color: #4CAF50;       /* ירוק יוקרתי */
+  --secondary-color: #ff5722;     /* כתום */
+  --bg-color: #f3f4f6;            /* רקע בהיר */
   --text-color: #333;
 }
 
