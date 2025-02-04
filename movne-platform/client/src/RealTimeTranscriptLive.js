@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './LiveTranscript.css';
+import './RealTimeTranscript.css';
 
-function RealTimeTranscriptLive({ onTranscriptUpdate }) {
+function RealTimeTranscript({ onTranscriptUpdate }) {
   const [transcript, setTranscript] = useState('');
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   
@@ -36,11 +36,11 @@ function RealTimeTranscriptLive({ onTranscriptUpdate }) {
   }, [onTranscriptUpdate]);
 
   return (
-    <div className="live-transcript">
+    <div className="real-time-transcript">
       <h3>תמלול בשידור חי</h3>
       <pre>{transcript}</pre>
     </div>
   );
 }
 
-export default RealTimeTranscriptLive;
+export default RealTimeTranscript;
