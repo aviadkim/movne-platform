@@ -4,7 +4,7 @@ import RecordingControls from './RecordingControls';
 import TranscriptViewer from './TranscriptViewer';
 import SummaryAndActions from './SummaryAndActions';
 import NeedsQuestionnaire from './NeedsQuestionnaire';
-import LiveTranscript from './LiveTranscript'; // ודא שהקובץ קיים ושמו תואם
+import RealTimeTranscript from './RealTimeTranscriptLive';
 import RegulatoryQuestions from './RegulatoryQuestions';
 import TestPanel from './TestPanel'; // אם יצרת אותו
 
