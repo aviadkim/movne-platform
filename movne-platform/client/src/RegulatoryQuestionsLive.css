@@ -30,13 +30,13 @@
   border-bottom: 1px solid #eee;
 }
 
-/* כאשר השאלה "נשאלת" – רקע ירוק */
+/* כאשר השאלה נשאלת – רקע ירוק */
 .question-asked {
   background-color: #d4edda;
   color: #155724;
 }
 
-/* כאשר השאלה עדיין לא "נשאלת" – רקע אדום בהיר */
+/* כאשר השאלה לא נשאלת – רקע אדום בהיר */
 .question-pending {
   background-color: #f8d7da;
   color: #721c24;
