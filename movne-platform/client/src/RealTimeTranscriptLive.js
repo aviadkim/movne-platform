@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './LiveTranscript.css';
 
-function RealTimeTranscriptLive() {
+function RealTimeTranscriptLive({ onTranscriptUpdate }) {
   const [transcript, setTranscript] = useState('');
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   
@@ -22,6 +22,9 @@ function RealTimeTranscriptLive() {
         interimTranscript += result[0].transcript;
       }
       setTranscript(interimTranscript);
+      if (onTranscriptUpdate) {
+        onTranscriptUpdate(interimTranscript);
+      }
     };
 
     recognition.onerror = (err) => {
@@ -30,7 +33,7 @@ function RealTimeTranscriptLive() {
 
     recognition.start();
     return () => recognition.stop();
-  }, []);
+  }, [onTranscriptUpdate]);
 
   return (
     <div className="live-transcript">
