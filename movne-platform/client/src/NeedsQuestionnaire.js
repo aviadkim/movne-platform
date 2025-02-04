@@ -18,32 +18,30 @@ function NeedsQuestionnaire() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Responses:', responses);
     alert('השאלון נשלח בהצלחה!');
+    // כאן יש לשלוח את הנתונים לשרת או לעדכן ב-CRM
   };
 
   return (
-    <form className="questionnaire-form bg-white p-4 border rounded mb-4" onSubmit={handleSubmit}>
-      <h3 className="text-lg font-medium text-center mb-2">שאלון בירור צרכים</h3>
-      <label className="block mb-2">
+    <form className="questionnaire-form" onSubmit={handleSubmit}>
+      <h3>שאלון בירור צרכים</h3>
+      <label>
         שם מלא:
-        <input type="text" name="fullName" value={responses.fullName} onChange={handleChange} className="w-full p-2 border rounded mt-1" />
+        <input type="text" name="fullName" value={responses.fullName} onChange={handleChange} />
       </label>
-      <label className="block mb-2">
+      <label>
         תעודת זהות:
-        <input type="text" name="idNumber" value={responses.idNumber} onChange={handleChange} className="w-full p-2 border rounded mt-1" />
+        <input type="text" name="idNumber" value={responses.idNumber} onChange={handleChange} />
       </label>
-      <label className="block mb-2">
+      <label>
         טלפון:
-        <input type="text" name="phone" value={responses.phone} onChange={handleChange} className="w-full p-2 border rounded mt-1" />
+        <input type="text" name="phone" value={responses.phone} onChange={handleChange} />
       </label>
-      <label className="block mb-2">
-        דוא"ל:
-        <input type="email" name="email" value={responses.email} onChange={handleChange} className="w-full p-2 border rounded mt-1" />
+      <label>
+        דואר אלקטרוני:
+        <input type="email" name="email" value={responses.email} onChange={handleChange} />
       </label>
-      <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition">
-        שלח שאלון
-      </button>
+      <button type="submit">שלח שאלון</button>
     </form>
   );
 }
