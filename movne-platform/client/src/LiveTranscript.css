@@ -1,14 +1,16 @@
 /* client/src/LiveTranscript.css */
 .live-transcript {
-  background-color: #e0f7fa; /* רקע בהיר */
+  background-color: #e0f7fa;
   padding: 20px;
   border-radius: 8px;
-  border: 1px solid #00796b; /* גבול יוקרתי */
+  border: 1px solid #00796b;
+  margin-top: 1rem;
 }
 
 .live-transcript h3 {
   font-size: 1.25rem;
   font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
 .live-transcript pre {
