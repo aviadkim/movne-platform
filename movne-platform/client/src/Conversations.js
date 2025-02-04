@@ -15,7 +15,7 @@ function Conversations() {
       {/* אם תרצה, תוכל לכלול כאן גם את TestPanel */}
       <AudioRecorder />
       <RecordingControls />
-      <LiveTranscript />
+      <RealTimeTranscript />
       <TranscriptViewer />
       <SummaryAndActions />
       <NeedsQuestionnaire />
