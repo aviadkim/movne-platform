@@ -1,29 +1,42 @@
-/* RegulatoryQuestions.css */
 .regulatory-questions {
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #ddd;
   padding: 15px;
   border-radius: 8px;
   margin-bottom: 20px;
+  direction: rtl;
 }
 
-.regulatory-questions h4 {
-  font-size: 1.1rem;
+.regulatory-questions h3 {
+  font-size: 1.2rem;
   font-weight: bold;
-  color: #333;
-  margin-bottom: 0.5rem;
+  margin-bottom: 10px;
 }
 
-.regulatory-questions button {
-  background-color: var(--secondary-color);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
+.topic button {
+  width: 100%;
+  text-align: right;
+  padding: 10px;
+  background-color: #ff5722;
+  color: #fff;
   border: none;
+  border-radius: 5px;
+  margin-bottom: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.regulatory-questions button:hover {
+.topic button:hover {
   background-color: #d45f1d;
+}
+
+.topic ul {
+  list-style: none;
+  padding-right: 15px;
+  margin: 10px 0;
+}
+
+.question-item {
+  padding: 5px;
+  border-bottom: 1px solid #eee;
 }
