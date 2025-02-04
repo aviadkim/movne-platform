@@ -1,0 +1,15 @@
+/* movne-platform/movne-platform/client/src/MarketData.css */
+.market-data {
+  background-color: #f0f4f8;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 1rem;
+  direction: rtl;
+}
+
+.market-data h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
