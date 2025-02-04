@@ -1,10 +1,10 @@
-/* LiveTranscript.css */
 .live-transcript {
   background-color: #e0f7fa;
   padding: 20px;
   border-radius: 8px;
   border: 1px solid #00796b;
   margin-top: 1rem;
+  direction: rtl;
 }
 
 .live-transcript h3 {
