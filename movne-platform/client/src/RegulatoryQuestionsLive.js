@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './RegulatoryQuestionsLive.css';
 
-// הגדרת הנושאים והשאלות הרגולטוריות (לדוגמה)
 const topics = {
   personal: {
     title: "עדכון פרטים אישיים וצרכים",
@@ -32,7 +31,6 @@ function RegulatoryQuestionsLive({ transcript }) {
   const [questionsStatus, setQuestionsStatus] = useState({});
 
   useEffect(() => {
-    // עבור כל שאלה, אם הטקסט של התמלול כולל את הטקסט של השאלה, נסמן אותה כ"נשאלת"
     const newStatus = {};
     Object.keys(topics).forEach(topicKey => {
       topics[topicKey].questions.forEach(q => {
@@ -44,7 +42,7 @@ function RegulatoryQuestionsLive({ transcript }) {
 
   return (
     <div className="regulatory-questions-live">
-      <h3>שאלות רגולטוריות - עדכון בזמן אמת</h3>
+      <h3>שאלות רגולטוריות – עדכון בזמן אמת</h3>
       {Object.keys(topics).map(topicKey => (
         <div key={topicKey} className="topic">
           <h4>{topics[topicKey].title}</h4>
