@@ -1,10 +1,14 @@
-/* client/src/CRM.css */
 .crm-container {
-  background-color: white;
+  background-color: #fff;
   padding: 1rem;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   margin: 1rem;
+  direction: rtl;
+}
+
+.form-group {
+  margin-bottom: 1rem;
 }
 
 .input-field {
@@ -12,11 +16,10 @@
   padding: 0.5rem;
   border: 1px solid #ddd;
   border-radius: 5px;
-  margin-bottom: 1rem;
 }
 
 .input-field:focus {
   outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 2px rgba(76,175,80,0.2);
 }
