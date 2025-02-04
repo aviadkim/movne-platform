@@ -1,6 +1,6 @@
 // Dashboard.js
 import React, { useState } from 'react';
-import RealTimeTranscript from './RealTimeTranscript';
+import RealTimeTranscript from './RealTimeTranscriptLive';
 import RegulatoryQuestions from './RegulatoryQuestions';
 import './Dashboard.css';
 
