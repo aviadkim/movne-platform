@@ -1,20 +1,21 @@
 .recording-controls {
   display: flex;
-  justify-content: space-around;
-  margin-top: 1rem;
-  direction: rtl;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .recording-controls button {
-  background-color: var(--primary-color);
+  background-color: #4CAF50;
   color: white;
   border: none;
-  padding: 10px 15px;
+  padding: 12px;
   border-radius: 5px;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .recording-controls button:hover {
-  background-color: var(--secondary-color);
+  background-color: #45a049;
+  transform: scale(1.05);
 }
