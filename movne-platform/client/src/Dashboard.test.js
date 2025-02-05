@@ -1,12 +1,12 @@
 import '@testing-library/jest-dom';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, within } from '@testing-library/react';
 import Dashboard from './Dashboard';
 
 describe("Dashboard Component", () => {
   beforeEach(() => {
-    // עטיפה של Dashboard בתוך MemoryRouter כדי לספק את ההקשר הדרוש ל-<Link>
+    // עטיפת Dashboard בתוך MemoryRouter כדי לספק את ההקשר הדרוש ל-<Link>
     render(
       <MemoryRouter>
         <Dashboard />
@@ -27,24 +27,31 @@ describe("Dashboard Component", () => {
   });
 
   test("renders RecordingControls and its buttons", () => {
-    const startButton = screen.getByRole("button", { name: /התחל הקלטה/i });
-    const uploadButton = screen.getByRole("button", { name: /העלה הקלטה/i });
-    const summaryButton = screen.getByRole("button", { name: /סיכום ופעולות/i });
+    const recordingContainer = screen.getByTestId("recording-controls");
+    // נבחר את כל הכפתורים עם הטקסט "התחל הקלטה" בתוך הקונטיינר
+    const startButtons = within(recordingContainer).getAllByRole("button", { name: /התחל הקלטה/i });
+    // נבחר את הראשון
+    const startButton = startButtons[0];
+    const uploadButton = within(recordingContainer).getByRole("button", { name: /העלה הקלטה/i });
+    const summaryButton = within(recordingContainer).getByRole("button", { name: /סיכום ופעולות/i });
     expect(startButton).toBeInTheDocument();
     expect(uploadButton).toBeInTheDocument();
     expect(summaryButton).toBeInTheDocument();
   });
 
   test("RecordingControls button 'התחל הקלטה' changes text on click", () => {
-    const startButton = screen.getByRole("button", { name: /התחל הקלטה/i });
+    const recordingContainer = screen.getByTestId("recording-controls");
+    const startButtons = within(recordingContainer).getAllByRole("button", { name: /התחל הקלטה/i });
+    const startButton = startButtons[0];
     expect(startButton).toHaveTextContent("התחל הקלטה");
     fireEvent.click(startButton);
     expect(startButton).toHaveTextContent("הקלטה בהפעלה");
   });
 
-  test("RealTimeTranscriptLive component renders", () => {
-    const transcriptHeader = screen.getByText(/תמלול בשידור חי/i);
-    expect(transcriptHeader).toBeInTheDocument();
+  test("RealTimeTranscriptLive component renders", async () => {
+    // נבדוק כותרת המכילה את "תמלול שיחה בשידור חי"
+    const transcriptHeading = await screen.findByText(/תמלול שיחה בשידור חי/i);
+    expect(transcriptHeading).toBeInTheDocument();
   });
 
   test("RegulatoryQuestions component renders", () => {
