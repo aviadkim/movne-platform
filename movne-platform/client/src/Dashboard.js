@@ -2,10 +2,26 @@
 import React, { useState } from 'react';
 import RealTimeTranscript from './RealTimeTranscriptLive';
 import RegulatoryQuestions from './RegulatoryQuestions';
+import RecordingControls from './RecordingControls'; // <-- שורת הייבוא החדשה
 import './Dashboard.css';
 
 function Dashboard() {
   const [transcript, setTranscript] = useState("");
+  const [isRecording, setIsRecording] = useState(false);
+
+  // פונקציות לדוגמה – ניתן להתאים לפי הצורך
+  const handleStart = () => {
+    setIsRecording(true);
+    console.log("start clicked");
+  };
+
+  const handleUpload = () => {
+    console.log("upload clicked");
+  };
+
+  const handleSummary = () => {
+    console.log("summary clicked");
+  };
 
   return (
     <div className="dashboard-container">
@@ -22,7 +38,13 @@ function Dashboard() {
             <button className="action-button">שלח מייל ליועץ</button>
             <button className="action-button">שלח מייל ללקוח</button>
           </div>
-          {/* כאן ניתן להוסיף רכיבים נוספים כגון CRM, Ticket לקוח וכדומה */}
+          {/* הוספת רכיב RecordingControls */}
+          <RecordingControls 
+            isRecording={isRecording} 
+            onStart={handleStart} 
+            onUpload={handleUpload} 
+            onSummary={handleSummary} 
+          />
         </div>
       </div>
     </div>
