@@ -1,7 +1,6 @@
-// src/Dashboard.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import EnhancedTranscript from './EnhancedTranscript';
+import RealTimeTranscriptLive from './RealTimeTranscriptLive';
 import RegulatoryQuestions from './RegulatoryQuestions';
 import RecordingControls from './RecordingControls';
 import './Dashboard.css';
@@ -17,16 +16,14 @@ const Dashboard = () => {
 
   const handleUpload = () => {
     console.log("העלה הקלטה נלחץ");
-    // כאן ניתן להוסיף קריאה ל-API
   };
 
   const handleSummary = () => {
     console.log("סיכום ופעולות נלחץ");
-    // כאן ניתן להוסיף לוגיקה לסיכום
   };
 
   return (
-    <div className="dashboard-container">
+    <div className="dashboard">
       <header className="dashboard-header">
         <h1>Movne Platform – מערכת ייעוץ פיננסי</h1>
         <nav className="dashboard-nav">
@@ -35,25 +32,32 @@ const Dashboard = () => {
           <Link to="/investment-file" className="nav-link">תיק השקעות</Link>
         </nav>
       </header>
-      <div className="dashboard-main">
+      <main className="dashboard-content">
         <section className="left-panel">
-          {/* השתמש ברכיב EnhancedTranscript */}
-          <EnhancedTranscript />
-          <RegulatoryQuestions transcript={transcript} />
+          <div className="transcript-section">
+            <h3>תמלול שיחה בשידור חי</h3>
+            <RealTimeTranscriptLive onTranscriptUpdate={setTranscript} />
+          </div>
+          <div className="regulatory-section">
+            <h3>שאלות רגולטוריות</h3>
+            <RegulatoryQuestions transcript={transcript} />
+          </div>
         </section>
         <aside className="right-panel">
           <div className="actions">
-            <button className="action-button">שלח מייל ליועץ</button>
-            <button className="action-button">שלח מייל ללקוח</button>
+            <button className="action-btn">שלח מייל ליועץ</button>
+            <button className="action-btn">שלח מייל ללקוח</button>
           </div>
-          <RecordingControls 
-            isRecording={isRecording} 
-            onStart={handleStart} 
-            onUpload={handleUpload} 
-            onSummary={handleSummary} 
-          />
+          <div className="recording-controls" data-testid="recording-controls">
+            <RecordingControls 
+              isRecording={isRecording}
+              onStart={handleStart}
+              onUpload={handleUpload}
+              onSummary={handleSummary}
+            />
+          </div>
         </aside>
-      </div>
+      </main>
     </div>
   );
 };
