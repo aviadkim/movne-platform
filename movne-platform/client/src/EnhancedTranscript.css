@@ -1,0 +1,62 @@
+.enhanced-transcript {
+  background-color: #f0f4f8;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  direction: rtl;
+  margin-bottom: 20px;
+}
+
+.controls {
+  margin-bottom: 15px;
+}
+
+.controls button {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.controls button:hover {
+  background-color: #45a049;
+}
+
+.transcript-display {
+  max-height: 400px;
+  overflow-y: auto;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+
+.transcript-line {
+  margin-bottom: 8px;
+  padding: 5px;
+  border-bottom: 1px dotted #ddd;
+}
+
+.timestamp {
+  color: #999;
+  margin-left: 5px;
+}
+
+.transcript-line.advisor .speaker {
+  color: #007BFF;
+  font-weight: bold;
+}
+
+.transcript-line.client .speaker {
+  color: #28A745;
+  font-weight: bold;
+}
+
+.regulatory {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  border-radius: 4px;
+  padding: 3px;
+}

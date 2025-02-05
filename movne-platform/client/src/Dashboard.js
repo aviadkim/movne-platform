@@ -1,6 +1,7 @@
+// src/Dashboard.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import RealTimeTranscriptLive from './RealTimeTranscriptLive';
+import EnhancedTranscript from './EnhancedTranscript';
 import RegulatoryQuestions from './RegulatoryQuestions';
 import RecordingControls from './RecordingControls';
 import './Dashboard.css';
@@ -9,7 +10,6 @@ const Dashboard = () => {
   const [transcript, setTranscript] = useState("");
   const [isRecording, setIsRecording] = useState(false);
 
-  // פונקציות לטיפול באינטראקציות
   const handleStart = () => {
     setIsRecording(true);
     console.log("התחל הקלטה נלחץ");
@@ -17,12 +17,12 @@ const Dashboard = () => {
 
   const handleUpload = () => {
     console.log("העלה הקלטה נלחץ");
-    // הוסף כאן קריאה ל-API להעלאת הקלטה
+    // כאן ניתן להוסיף קריאה ל-API
   };
 
   const handleSummary = () => {
     console.log("סיכום ופעולות נלחץ");
-    // הוסף כאן לוגיקה לסיכום ההקלטה או פעולות נוספות
+    // כאן ניתן להוסיף לוגיקה לסיכום
   };
 
   return (
@@ -37,7 +37,8 @@ const Dashboard = () => {
       </header>
       <div className="dashboard-main">
         <section className="left-panel">
-          <RealTimeTranscriptLive onTranscriptUpdate={setTranscript} />
+          {/* השתמש ברכיב EnhancedTranscript */}
+          <EnhancedTranscript />
           <RegulatoryQuestions transcript={transcript} />
         </section>
         <aside className="right-panel">
