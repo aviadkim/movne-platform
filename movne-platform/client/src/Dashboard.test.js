@@ -1,61 +1,58 @@
-// src/Dashboard.js
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import RealTimeTranscriptLive from './RealTimeTranscriptLive';
-import RegulatoryQuestions from './RegulatoryQuestions';
-import RecordingControls from './RecordingControls';
-import './Dashboard.css';
+import '@testing-library/jest-dom';
+import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
+import { render, screen, fireEvent } from '@testing-library/react';
+import Dashboard from './Dashboard';
 
-const Dashboard = () => {
-  const [transcript, setTranscript] = useState("");
-  const [isRecording, setIsRecording] = useState(false);
+describe("Dashboard Component", () => {
+  beforeEach(() => {
+    // עטיפה של Dashboard בתוך MemoryRouter כדי לספק את ההקשר הדרוש ל-<Link>
+    render(
+      <MemoryRouter>
+        <Dashboard />
+      </MemoryRouter>
+    );
+  });
 
-  // פונקציות פעולה עם לוגיקה מובנית
-  const handleStart = () => {
-    setIsRecording(true);
-    console.log("התחל הקלטה נלחץ");
-  };
+  test("renders dashboard header", () => {
+    const headerElement = screen.getByText(/Movne Platform – מערכת ייעוץ פיננסי/i);
+    expect(headerElement).toBeInTheDocument();
+  });
 
-  const handleUpload = () => {
-    console.log("העלה הקלטה נלחץ");
-    // כאן תוכל להוסיף קריאה ל-API להעלאת ההקלטה
-  };
+  test("renders action buttons for sending email", () => {
+    const advisorButton = screen.getByText(/שלח מייל ליועץ/i);
+    const clientButton = screen.getByText(/שלח מייל ללקוח/i);
+    expect(advisorButton).toBeInTheDocument();
+    expect(clientButton).toBeInTheDocument();
+  });
 
-  const handleSummary = () => {
-    console.log("סיכום ופעולות נלחץ");
-    // כאן תוכל להוסיף סיכום הקלטה או פעולות נוספות
-  };
+  test("renders RecordingControls and its buttons", () => {
+    const startButton = screen.getByRole("button", { name: /התחל הקלטה/i });
+    const uploadButton = screen.getByRole("button", { name: /העלה הקלטה/i });
+    const summaryButton = screen.getByRole("button", { name: /סיכום ופעולות/i });
+    expect(startButton).toBeInTheDocument();
+    expect(uploadButton).toBeInTheDocument();
+    expect(summaryButton).toBeInTheDocument();
+  });
 
-  return (
-    <div className="dashboard-container">
-      <header className="dashboard-header">
-        <h1>Movne Platform – מערכת ייעוץ פיננסי</h1>
-        <nav className="dashboard-nav">
-          <Link to="/crm" className="nav-link">מערכת CRM</Link>
-          <Link to="/client-ticket" className="nav-link">תיק לקוח</Link>
-          <Link to="/investment-file" className="nav-link">תיק השקעות</Link>
-        </nav>
-      </header>
-      <div className="dashboard-main">
-        <section className="left-panel">
-          <RealTimeTranscriptLive onTranscriptUpdate={setTranscript} />
-          <RegulatoryQuestions transcript={transcript} />
-        </section>
-        <aside className="right-panel">
-          <div className="actions">
-            <button className="action-button">שלח מייל ליועץ</button>
-            <button className="action-button">שלח מייל ללקוח</button>
-          </div>
-          <RecordingControls 
-            isRecording={isRecording} 
-            onStart={handleStart} 
-            onUpload={handleUpload} 
-            onSummary={handleSummary} 
-          />
-        </aside>
-      </div>
-    </div>
-  );
-};
+  test("RecordingControls button 'התחל הקלטה' changes text on click", () => {
+    const startButton = screen.getByRole("button", { name: /התחל הקלטה/i });
+    expect(startButton).toHaveTextContent("התחל הקלטה");
+    fireEvent.click(startButton);
+    expect(startButton).toHaveTextContent("הקלטה בהפעלה");
+  });
 
-export default Dashboard;
+  test("RealTimeTranscriptLive component renders", () => {
+    const transcriptHeader = screen.getByText(/תמלול בשידור חי/i);
+    expect(transcriptHeader).toBeInTheDocument();
+  });
+
+  test("RegulatoryQuestions component renders", () => {
+    const regulatoryHeader = screen.getByText(/עדכון פרטים אישיים וצרכים/i);
+    expect(regulatoryHeader).toBeInTheDocument();
+  });
+
+  test("dummy test", () => {
+    expect(true).toBe(true);
+  });
+});
