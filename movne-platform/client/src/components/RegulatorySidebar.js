@@ -70,7 +70,7 @@ const RegulatorySidebar = ({ onAnswerUpdate }) => {
   };
 
   return (
-    <div className="w-64 bg-white shadow-lg rounded-xl border border-stone-200 h-full">
+    <div className="w-full bg-white shadow-lg rounded-xl border border-stone-200 h-full">
       <div className="p-4 border-b border-stone-200">
         <h3 className="text-lg font-semibold text-finance-300">נושאי שיחה רגולטוריים</h3>
       </div>

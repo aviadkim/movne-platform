@@ -1,12 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import './components.css';
 
 body {
   margin: 0;
-  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  @apply bg-finance-50;
+  direction: rtl;
+  font-family: 'Assistant', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.transcript-container {
+  height: calc(100vh - 300px);
+  overflow-y: auto;
 }
