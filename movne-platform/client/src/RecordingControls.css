@@ -1,21 +1,19 @@
-/* RecordingControls.css */
-.recording-controls-component {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.recording-controls {
+  @apply space-y-4;
 }
 
-.recording-controls-component button {
-  background: #ff4081;
-  color: #fff;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 4px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s;
+.record-button {
+  @apply w-full py-2 px-4 bg-trust-400 text-white rounded-lg 
+         hover:bg-finance-400 transition-all duration-300 
+         flex items-center justify-center gap-2;
 }
 
-.recording-controls-component button:hover {
-  background: #f50057;
+.upload-button {
+  @apply w-full py-2 px-4 bg-trust-500 text-white rounded-lg 
+         hover:bg-finance-400 transition-all duration-300 
+         flex items-center justify-center gap-2;
+}
+
+.recording-active {
+  @apply bg-red-500;
 }

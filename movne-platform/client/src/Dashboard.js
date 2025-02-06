@@ -1,63 +1,72 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import RealTimeTranscriptLive from './RealTimeTranscriptLive';
 import RegulatoryQuestions from './RegulatoryQuestions';
 import RecordingControls from './RecordingControls';
-import './Dashboard.css';
 
 const Dashboard = () => {
   const [transcript, setTranscript] = useState("");
   const [isRecording, setIsRecording] = useState(false);
 
-  const handleStart = () => {
-    setIsRecording(true);
-    console.log("התחל הקלטה נלחץ");
-  };
+  const handleStart = () => setIsRecording(true);
+  const handleUpload = () => console.log("העלה הקלטה נלחץ");
+  const handleSummary = () => console.log("סיכום ופעולות נלחץ");
 
-  const handleUpload = () => {
-    console.log("העלה הקלטה נלחץ");
-  };
-
-  const handleSummary = () => {
-    console.log("סיכום ופעולות נלחץ");
-  };
+  const actionButtons = [
+    "שאלות רגולטוריות",
+    "עדכון פרטים אישיים וצרכים",
+    "מתן המלצות השקעה",
+    "תיעוד שיחה"
+  ];
 
   return (
-    <div className="dashboard">
-      <header className="dashboard-header">
-        <h1>Movne Platform – מערכת ייעוץ פיננסי</h1>
-        <nav className="dashboard-nav">
-          <Link to="/crm" className="nav-link">מערכת CRM</Link>
-          <Link to="/client-ticket" className="nav-link">תיק לקוח</Link>
-          <Link to="/investment-file" className="nav-link">תיק השקעות</Link>
-        </nav>
-      </header>
-      <main className="dashboard-content">
-        <section className="left-panel">
-          <div className="transcript-section">
-            <h3>תמלול שיחה בשידור חי</h3>
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="lg:col-span-2 space-y-8">
+        <section className="bg-white rounded-xl shadow-lg p-6 border border-stone-200">
+          <h3 className="text-xl font-semibold text-finance-300 mb-6 border-b border-stone-200 pb-3">
+            תמלול שיחה בשידור חי
+          </h3>
+          <div className="bg-finance-50 rounded-lg p-4">
             <RealTimeTranscriptLive onTranscriptUpdate={setTranscript} />
           </div>
-          <div className="regulatory-section">
-            <h3>שאלות רגולטוריות</h3>
-            <RegulatoryQuestions transcript={transcript} />
+          
+          <div className="mt-6 grid grid-cols-2 gap-4">
+            {actionButtons.map((text, index) => (
+              <button
+                key={index}
+                className="p-4 bg-finance-50 text-finance-300 rounded-lg border border-stone-200
+                         hover:bg-trust-400 hover:text-white transition-all duration-300
+                         flex items-center justify-center text-center min-h-[60px]"
+              >
+                {text}
+              </button>
+            ))}
           </div>
         </section>
-        <aside className="right-panel">
-          <div className="actions">
-            <button className="action-btn">שלח מייל ליועץ</button>
-            <button className="action-btn">שלח מייל ללקוח</button>
-          </div>
-          <div className="recording-controls" data-testid="recording-controls">
-            <RecordingControls 
-              isRecording={isRecording}
-              onStart={handleStart}
-              onUpload={handleUpload}
-              onSummary={handleSummary}
-            />
-          </div>
-        </aside>
-      </main>
+      </div>
+
+      <aside className="bg-white rounded-xl shadow-lg p-6 h-fit lg:sticky lg:top-32 border border-stone-200">
+        <div className="space-y-4">
+          <button className="w-full py-3 px-4 bg-trust-400 text-white rounded-lg 
+                           hover:bg-finance-400 transition-all duration-300 
+                           shadow-md hover:shadow-lg">
+            שלח מייל ליועץ
+          </button>
+          <button className="w-full py-3 px-4 bg-trust-500 text-white rounded-lg 
+                           hover:bg-finance-400 transition-all duration-300 
+                           shadow-md hover:shadow-lg">
+            שלח מייל ללקוח
+          </button>
+        </div>
+        
+        <div className="mt-6">
+          <RecordingControls 
+            isRecording={isRecording}
+            onStart={handleStart}
+            onUpload={handleUpload}
+            onSummary={handleSummary}
+          />
+        </div>
+      </aside>
     </div>
   );
 };

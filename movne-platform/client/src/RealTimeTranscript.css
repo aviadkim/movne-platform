@@ -1,23 +1,12 @@
-.real-time-transcript {
-  background-color: #e0f7fa;
-  padding: 20px;
-  border-radius: 8px;
-  border: 1px solid #00796b;
-  margin-top: 1rem;
-  direction: rtl;
-  transition: all 0.3s ease;
+.transcript-container {
+  @apply bg-finance-50 rounded-lg p-4;
 }
 
-.real-time-transcript h3 {
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+.transcript-text {
+  @apply text-finance-300 leading-relaxed;
 }
 
-.real-time-transcript pre {
-  font-family: 'Courier New', Courier, monospace;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  font-size: 1rem;
-  color: #00796b;
+.control-button {
+  @apply bg-trust-400 text-white px-4 py-2 rounded-lg 
+         hover:bg-finance-400 transition-all duration-300;
 }

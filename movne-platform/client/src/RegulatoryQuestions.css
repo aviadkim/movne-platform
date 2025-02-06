@@ -1,42 +1,11 @@
 .regulatory-questions {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  direction: rtl;
-}
-
-.regulatory-questions h3 {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.topic button {
-  width: 100%;
-  text-align: right;
-  padding: 10px;
-  background-color: #ff5722;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  margin-bottom: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.topic button:hover {
-  background-color: #d45f1d;
-}
-
-.topic ul {
-  list-style: none;
-  padding-right: 15px;
-  margin: 10px 0;
+  @apply bg-finance-50 rounded-lg p-4;
 }
 
 .question-item {
-  padding: 5px;
-  border-bottom: 1px solid #eee;
+  @apply text-finance-300 mb-4;
+}
+
+.action-button {
+  @apply bg-trust-400 text-white px-4 py-2 rounded-lg hover:bg-finance-400 transition-all duration-300;
 }
