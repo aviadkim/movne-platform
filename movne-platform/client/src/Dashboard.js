@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import RegulatorySidebar from './components/RegulatorySidebar';
 import EnhancedTranscript from './components/EnhancedTranscript';
+// eslint-disable-next-line no-unused-vars
 import RecordingControls from './components/RecordingControls';
 
 const Dashboard = () => {
@@ -8,6 +9,7 @@ const Dashboard = () => {
   const [transcript, setTranscript] = useState([]);
   const [summary, setSummary] = useState('');
   const [recognition, setRecognition] = useState(null);
+  // eslint-disable-next-line no-unused-vars
   const [regulatoryAnswers, setRegulatoryAnswers] = useState({});
 
   useEffect(() => {
@@ -77,7 +79,7 @@ const Dashboard = () => {
             <div className="flex gap-3">
               <button
                 onClick={isRecording ? handleStop : handleStart}
-                className={`px-4 py-2 rounded-lg transition-all duration-300
+                className={`px-4 py-2 rounded-lg transition-all duration-300 text-sm
                   ${isRecording 
                     ? 'bg-red-500 hover:bg-red-600 text-white' 
                     : 'bg-trust-400 hover:bg-trust-500 text-white'}`}
@@ -86,7 +88,7 @@ const Dashboard = () => {
               </button>
               
               <label className="px-4 py-2 bg-finance-300 text-white rounded-lg hover:bg-finance-400 
-                            transition-all duration-300 cursor-pointer">
+                            transition-all duration-300 cursor-pointer text-sm">
                 העלה הקלטה
                 <input 
                   type="file" 
@@ -99,7 +101,7 @@ const Dashboard = () => {
               <button
                 onClick={handleSummary}
                 className="px-4 py-2 bg-finance-300 text-white rounded-lg hover:bg-finance-400 
-                         transition-all duration-300"
+                         transition-all duration-300 text-sm"
               >
                 סיכום ופעולות
               </button>
@@ -127,17 +129,18 @@ const Dashboard = () => {
             value={summary}
             onChange={(e) => setSummary(e.target.value)}
             placeholder="סיכום אוטומטי יופיע כאן..."
+            dir="rtl"
           />
           <div className="mt-4 space-y-2">
             <button 
               onClick={() => handleSendEmail('client')}
-              className="w-full py-2 bg-trust-400 text-white rounded-lg hover:bg-trust-500"
+              className="w-full py-2 text-sm bg-trust-400 text-white rounded-lg hover:bg-trust-500 transition-all duration-300"
             >
               שלח מייל ללקוח
             </button>
             <button 
               onClick={() => handleSendEmail('advisor')}
-              className="w-full py-2 bg-finance-300 text-white rounded-lg hover:bg-finance-400"
+              className="w-full py-2 text-sm bg-finance-300 text-white rounded-lg hover:bg-finance-400 transition-all duration-300"
             >
               שלח מייל למשווק
             </button>
