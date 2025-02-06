@@ -33,10 +33,6 @@ const Dashboard = () => {
     }
   }, []);
 
-  const handleTranscriptChange = (newTranscript) => {
-    setTranscript(prev => [...prev, newTranscript]);
-  };
-
   const handleStart = () => {
     setIsRecording(true);
     recognition?.start();
@@ -53,19 +49,32 @@ const Dashboard = () => {
     }
   };
 
+  const handleTranscriptChange = (newTranscript) => {
+    setTranscript(prev => [...prev, newTranscript]);
+  };
+
   const handleSummary = () => {
-    setSummary("Generated summary will appear here");
+    const summaryText = transcript
+      .map(t => t.text)
+      .join('\n');
+    setSummary(summaryText);
   };
 
   const handleSendEmail = (type) => {
-    console.log(`Sending ${type} email`);
+    const emailContent = {
+      transcript: transcript,
+      summary: summary,
+      regulatory: regulatoryAnswers
+    };
+    console.log(`Sending ${type} email with:`, emailContent);
   };
 
+  // Update summary when transcript changes
   useEffect(() => {
-    if (regulatoryAnswers && Object.keys(regulatoryAnswers).length > 0) {
-      handleSummary(); // Use handleSummary when regulatory answers change
+    if (transcript.length > 0) {
+      handleSummary();
     }
-  }, [regulatoryAnswers]);
+  }, [transcript]);
 
   return (
     <div className="grid grid-cols-12 gap-3 p-2 h-screen">
@@ -79,12 +88,14 @@ const Dashboard = () => {
             <h3 className="text-xl font-semibold text-finance-300">
               תמלול שיחה בשידור חי
             </h3>
-            <RecordingControls 
-              isRecording={isRecording}
-              onStart={handleStart}
-              onStop={handleStop}
-              onUpload={handleUpload}
-            />
+            <div className="flex gap-3">
+              <RecordingControls 
+                isRecording={isRecording}
+                onStart={handleStart}
+                onStop={handleStop}
+                onUpload={handleUpload}
+              />
+            </div>
           </div>
           
           <div className="flex-1 overflow-hidden">
