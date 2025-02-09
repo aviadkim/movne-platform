@@ -1,0 +1,11 @@
+.rtl-container {
+  direction: rtl;
+}
+
+.client-card {
+  transition: all 0.3s ease;
+}
+
+.client-card:hover {
+  transform: translateY(-2px);
+}
